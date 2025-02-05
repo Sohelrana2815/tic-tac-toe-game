@@ -29,7 +29,29 @@ const App = () => {
         return squares[a]; // Return the winner (X or O)
       }
     }
-    return null; // No winner found yet. 
+    return null; // No winner found yet.
+  };
+
+  // Handle square clicks
+
+  const handleClick = (i) => {
+    // If square is already filled or there's a winner, do nothing
+
+    if (squares[i] || calculateWinner(squares)) return;
+
+    // Create a copy of the squares array
+
+    const newSquares = squares.slice();
+
+    // Mark the square with X or O
+
+    newSquares[i] = xIsNext ? "X" : "O";
+    // Update the state
+
+    setSquares(newSquares);
+    // Toggle the turn
+
+    setXIsNext(!xIsNext);
   };
 
   return <div></div>;
