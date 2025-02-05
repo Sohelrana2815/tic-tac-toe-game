@@ -18,6 +18,18 @@ const App = () => {
       [0, 4, 8],
       [2, 4, 6], // Diagonals
     ];
+
+    for (let line of lines) {
+      const [a, b, c] = line;
+      if (
+        squares[a] &&
+        squares[a] === squares[b] &&
+        squares[a] === squares[c]
+      ) {
+        return squares[a]; // Return the winner (X or O)
+      }
+    }
+    return null; // No winner found yet. 
   };
 
   return <div></div>;
