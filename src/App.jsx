@@ -21,40 +21,32 @@ const App = () => {
 
     for (let line of lines) {
       const [a, b, c] = line;
+
       if (
         squares[a] &&
         squares[a] === squares[b] &&
         squares[a] === squares[c]
       ) {
-        return squares[a]; // Return the winner (X or O)
+        return squares[a];
       }
     }
-    return null; // No winner found yet.
+    return null;
   };
 
-  // Handle square clicks
+  // Handle Square clicks
 
   const handleClick = (i) => {
-    // If square is already filled or there's a winner, do nothing
-
     if (squares[i] || calculateWinner(squares)) return;
 
     // Create a copy of the squares array
-
     const newSquares = squares.slice();
-
     // Mark the square with X or O
-
     newSquares[i] = xIsNext ? "X" : "O";
     // Update the state
-
     setSquares(newSquares);
     // Toggle the turn
-
     setXIsNext(!xIsNext);
   };
-
-  return <div></div>;
 };
 
 export default App;
